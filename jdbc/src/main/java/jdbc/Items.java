@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component("Items")
@@ -13,6 +14,9 @@ public class Items {
 	@Autowired
 	@Qualifier("p0")
    	Pen p0;
+	
+	@Autowired
+	JdbcTemplate jdbctemp;
    
    @Autowired
    @Qualifier("p1")
@@ -26,7 +30,7 @@ public class Items {
 	listPen.add(p1);
 	listPen.add(p2);
 	return listPen;
-	
+	//jdbctemp.execute(psc, action);
 	
  }
  
