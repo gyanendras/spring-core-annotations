@@ -2,6 +2,7 @@ package jdbc;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -30,8 +31,14 @@ public class Items {
 	listPen.add(p1);
 	listPen.add(p2);
 	return listPen;
-	//jdbctemp.execute(psc, action);
 	
+	
+ }
+ 
+ List getListFromDB(){
+	 //jdbctemp.execute("select * from Employees");
+	 List l= jdbctemp.queryForList("select * from Employees");
+	 return l;
  }
  
  public static void main(String[] args) {

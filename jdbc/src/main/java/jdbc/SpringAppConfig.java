@@ -1,5 +1,7 @@
 package jdbc;
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Configurable;
@@ -24,6 +26,9 @@ public class SpringAppConfig {
 	 for(Pen p:it.getItems()) {
 		 System.out.println(p.getName());
 	 }
+	 
+	 List l = it.getListFromDB();
+	 System.out.println(l);
 	}
 	
 	@Bean("p0")
@@ -41,10 +46,10 @@ public class SpringAppConfig {
 	  public DataSource dataSource() {
 	    DriverManagerDataSource dataSource = new DriverManagerDataSource();
 	    //MySQL database we are using
-	    dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-	    dataSource.setUrl("jdbc:mysql://localhost:3306/TestDB");//change url
-	    dataSource.setUsername("userid");//change userid
-	    dataSource.setPassword("password");//change pwd
+	    dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+	    dataSource.setUrl("jdbc:mysql://localhost:3306/hr");//change url
+	    dataSource.setUsername("root");//change userid
+	    dataSource.setPassword("full2work");//change pwd
 	    return dataSource;
 
 	    }
