@@ -16,8 +16,7 @@ public class Items {
 	@Qualifier("p0")
    	Pen p0;
 	
-	@Autowired
-	JdbcTemplate jdbctemp;
+	
    
    @Autowired
    @Qualifier("p1")
@@ -35,11 +34,7 @@ public class Items {
 	
  }
  
- List getListFromDB(){
-	 //jdbctemp.execute("select * from Employees");
-	 List l= jdbctemp.queryForList("select * from Employees");
-	 return l;
- }
+
  
  public static void main(String[] args) {
 	 Items item = new Items();

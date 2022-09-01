@@ -12,6 +12,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import jdbc.model.Employee;
+import jdbc.service.EmployeeService;
+
 @Configurable
 @ComponentScan
 public class SpringAppConfig {
@@ -27,8 +30,12 @@ public class SpringAppConfig {
 		 System.out.println(p.getName());
 	 }
 	 
-	 List l = it.getListFromDB();
-	 System.out.println(l);
+	 EmployeeService es = (EmployeeService)context.getBean(EmployeeService.class);
+			 
+	 System.out.println(es.getEmployee());
+	 for(Employee e:es.getEmployee() ) {
+		 System.out.println(e.getfName());
+	 }
 	}
 	
 	@Bean("p0")
